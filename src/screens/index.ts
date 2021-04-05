@@ -1,5 +1,5 @@
 export { Home } from './Home'
-export { Latest } from './Latest'
+export { NowPlaying } from './NowPlaying'
 export { Detail } from './Detail'
 export { Popular } from './Popular'
 export { Search } from './Search'
