@@ -32,16 +32,16 @@ export const fetchMovies = async (path: string, imageWidth: number) => {
 
         const picSize = "w" + imageWidth.toString();
         const { data } = await api.get(path);
-
+        console.log("fetched this unmapped data: " + JSON.stringify(data));
 
         const mappedResults = data['results'].map((m: Movie) => ({
-            id: m['id'],
-            backdrop_path: posterURL + picSize + m['backdrop_path'],
-            popularity: m['popularity'],
-            title: m['title'],
-            poster_path: posterURL + picSize + m['poster_path'],
-            overview: m['overview'],
-            rating: m['vote_average'],
+            id: m.id,
+            backdrop_path: posterURL + picSize + m.backdrop_path,
+            popularity: m.popularity,
+            title: m.title,
+            poster_path: posterURL + picSize + m.poster_path,
+            overview: m.overview,
+            rating: m.vote_average,
         }));
         console.log('fetched data: ' + JSON.stringify(mappedResults));
         return mappedResults;

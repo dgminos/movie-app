@@ -14,7 +14,7 @@ const Slider: FC = () => {
     useEffect(() => {
 
         const fetchData = async () => {
-            setMovieResults(await fetchMovies('now_playing', 1280))
+            setMovieResults(await fetchMovies('25/recommendations', 1280))
         };
         fetchData();
     }, []);

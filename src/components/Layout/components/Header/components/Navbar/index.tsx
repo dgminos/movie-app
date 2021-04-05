@@ -19,7 +19,7 @@ const Navbar: FC = () => {
                             </NavLink>
                         </li>
                         <li className='nav-item'>
-                            <NavLink exact to='/latest' activeClassName='active' className='nav-link text-white' >Latest
+                            <NavLink exact to='/now_playing' activeClassName='active' className='nav-link text-white' >Now Playing
                             </NavLink>
                         </li>
                         <li className='nav-item'>
