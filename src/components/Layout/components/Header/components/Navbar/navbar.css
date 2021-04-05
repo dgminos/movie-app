@@ -7,10 +7,10 @@
 } 
 .logo {
     display: flex;
+    color: "#1890ff";
     margin-right: 4%;
     margin-left: 4%;
-    font-size: 80px;
-    width: 50px;
+    width: 80px;
 }
 
 ul {

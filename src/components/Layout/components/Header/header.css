@@ -1,9 +1,9 @@
 
 .layout-header {
-   display: block; 
+   /* display: block; 
     z-index: 1;  
    height: 64px; 
-    padding: 0; 
+    padding: 0;  */
    line-height: 64px;  
     flex: 0 0 auto;  
 } 
