@@ -6,7 +6,7 @@ const Navbar: FC = () => {
     return (
         <nav className='navbar navbar-expand-lg'>
             <div className='container-fluid'>
-                <a className='navbar-brand logo' style={{ color: "#1890ff" }} href='/'>
+                <a className='navbar-brand logo' style={{ color: "#1890ff", fontSize: 70 }} href='/'>
                     <i className='bi bi-film'></i>
                 </a>
                 <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
