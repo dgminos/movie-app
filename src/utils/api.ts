@@ -4,11 +4,14 @@ const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/movie/',
     params: {
         api_key: process.env.REACT_APP_API_KEY,
-        language: 'en_US'
+        language: 'en_US',
+        page: 1
     }
 });
 
 export { api };
+
+
 const posterURL = 'https://image.tmdb.org/t/p/'
 // const moviePath = "/movie/";
 // const nowPlaying = movie + "/now_playing";
@@ -41,9 +44,9 @@ export const fetchMovies = async (path: string, imageWidth: number) => {
             title: m.title,
             poster_path: posterURL + picSize + m.poster_path,
             overview: m.overview,
-            rating: m.vote_average,
+            vote_average: m.vote_average,
         }));
-        console.log('fetched data: ' + JSON.stringify(mappedResults));
+        console.log('mapped data: ' + JSON.stringify(mappedResults));
         return mappedResults;
     } catch (error) {
         console.log("error caught while fetching data: " + error);

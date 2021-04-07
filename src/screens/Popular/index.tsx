@@ -1,10 +1,13 @@
 import React, { FC } from 'react'
+import { Layout } from '../../components'
+import { Cards } from '../Home/components/Cards'
 
 const Popular: FC = () => {
     return (
-        <p>
-            Popular
-        </p>
+        <Layout>
+            <Cards amount={20} dataPath={'popular'} title='Popular' />
+
+        </Layout>
     )
 }
 
