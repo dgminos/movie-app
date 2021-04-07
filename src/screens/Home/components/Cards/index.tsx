@@ -1,6 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
+import Spinner from 'react-bootstrap/Spinner'
+import StarRatingComponent from 'react-star-rating-component'
 import { fetchMovies, Movie } from '../../../../utils/api'
 import './home-cards.css'
 
@@ -27,17 +29,37 @@ const Cards: FC<CardsProps> = ({ amount, dataPath, title }) => {
   console.log('movies: ' + JSON.stringify(movieResults));
 
   if (movieResults === undefined)
-    // TODO: reemplazar loading
-    return <p>Loading...</p>
 
-  const cards = movieResults.slice(0, amount).map((item: Movie, index: number) => {
+    return (
+      <Spinner animation='grow' variant='primary' role='status'>
+        <span className='sr-only'>Loading...</span>
+      </Spinner>
+    )
+
+  const cards = movieResults.slice(0, amount).map((item: Movie) => {
     return (
       <div className='cards' style={{ width: 250 }}>
         <Card>
-          <Card.Img variant="top" key={index} src={item.poster_path} />
+          <Card.Img variant='top' key={item.id} src={item.poster_path} />
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
+            <Card.Text>
+              <p>Rated: {item.vote_average}</p>
+              <StarRatingComponent
+                name={`rate` + item.id}
+                starCount={10}
+                value={item.vote_average}
+                starColor={'#0066ff'}
+              >
+              </StarRatingComponent>
+            </Card.Text>
+
           </Card.Body>
+          <Card.Footer>
+            <a href='/detail'>
+              <i className='bi bi-eye text-center'></i>
+            </a>
+          </Card.Footer>
         </Card>
       </div>
     )
