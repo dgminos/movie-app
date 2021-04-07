@@ -3,7 +3,7 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
 import StarRatingComponent from 'react-star-rating-component'
-import { fetchMovies, Movie } from '../../../../utils/api'
+import { fetchMovies, Movie } from '../../../../fetch/fetchMovies'
 import './home-cards.css'
 
 interface CardsProps {

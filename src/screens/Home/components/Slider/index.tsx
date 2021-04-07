@@ -1,10 +1,9 @@
 import React, { useState, useEffect, FC } from 'react'
-// import { fetchMovies } from '../../../../utils/ax'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Carousel from 'react-bootstrap/Carousel'
 import Button from 'react-bootstrap/Button'
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css'
-import { Movie, fetchMovies } from '../../../../utils/api'
+import { Movie, fetchMovies } from '../../../../fetch/fetchMovies'
 import './slider.css'
 
 
