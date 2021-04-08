@@ -2,3 +2,9 @@
     background-color: #a7a7a7cf;
     opacity: .9;
 }
+
+.slider{
+    height:33rem;
+    width: 100%;
+    object-fit: cover;
+    }

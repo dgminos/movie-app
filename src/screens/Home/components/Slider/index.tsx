@@ -13,7 +13,7 @@ const Slider: FC = () => {
     useEffect(() => {
 
         const fetchData = async () => {
-            setMovieResults(await fetchMovies('25/recommendations', 1280))
+            setMovieResults(await fetchMovies('11/recommendations', 1280))
         };
         fetchData();
     }, []);
@@ -22,18 +22,18 @@ const Slider: FC = () => {
         return (
             <Carousel.Item>
                 <img
-                    className='d-block w-100'
+                    className='d-block slider'
                     key={index}
-                    style={{ height: 600 }}
+                    // style={{ height: 400 }}
                     src={item.backdrop_path}
                     alt={item.title}
                 />
-                <Carousel.Caption>
-                    <div className='carousel-caption'>
-                        <h3>{item.title}</h3>
-                        <p>{item.overview}</p>
-                        <Button href='/movie/:id'>See more...</Button>
-                    </div>
+                <Carousel.Caption className='carousel-caption mb-5'>
+
+                    <h3>{item.title}</h3>
+                    <p>{item.overview}</p>
+                    <Button href='/movie/:id'>See more...</Button>
+
                 </Carousel.Caption>
 
             </Carousel.Item>
