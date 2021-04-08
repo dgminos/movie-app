@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Layout } from '../../components'
-import { Cards } from '../Home/components/Cards'
+import { Cards } from '../../components/Cards'
 
 const Popular: FC = () => {
     return (

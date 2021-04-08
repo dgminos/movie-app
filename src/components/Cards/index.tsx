@@ -3,8 +3,8 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
 import StarRatingComponent from 'react-star-rating-component'
-import { fetchMovies, Movie } from '../../../../fetch/fetchMovies'
-import './home-cards.css'
+import { fetchMovies, Movie } from '../../fetch/fetchMovies'
+import './cards.css'
 
 interface CardsProps {
   amount: number,
@@ -38,7 +38,7 @@ const Cards: FC<CardsProps> = ({ amount, dataPath, title }) => {
 
   const cards = movieResults.slice(0, amount).map((item: Movie) => {
     return (
-      <div className='cards' style={{ width: 250 }}>
+      <div className='cards mt-4' style={{ width: 250 }}>
         <Card>
           <Card.Img variant='top' key={item.id} src={item.poster_path} />
           <Card.Body>
