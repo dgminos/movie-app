@@ -1,9 +1,21 @@
 import React, { FC } from 'react'
+import { useFetch } from '../../hooks';
 
-const Detail: FC = () => {
+interface DetailProps {
+    id: number
+}
+
+const Detail: FC<DetailProps> = (id) => {
+
+    const endpoint = "movie/" + id;
+    const imageWidth = 1280;
+
+    const [{ loading, response, error }] = useFetch(endpoint, imageWidth, 1);
+
+
     return (
         <p>
-            Detail
+            {/* Title: {response. */}
         </p>
     )
 }

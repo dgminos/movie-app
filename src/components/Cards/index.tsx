@@ -1,71 +1,47 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
-import Spinner from 'react-bootstrap/Spinner'
 import StarRatingComponent from 'react-star-rating-component'
-import { fetchMovies, Movie } from '../../fetch/fetchMovies'
+import { Movie } from '../../hooks/useFetch'
 import './cards.css'
 
 interface CardsProps {
   amount: number,
-  dataPath: string,
+  results: Movie[],
   title: string
 }
 
-const Cards: FC<CardsProps> = ({ amount, dataPath, title }) => {
+const Cards: FC<CardsProps> = ({ amount, results, title }) => {
 
-  const [movieResults, setMovieResults] = useState<Movie[]>([]);
-
-  const posterWidthForCards = 500;
-
-  useEffect(() => {
-
-    const fetchData = async () => {
-      setMovieResults(await fetchMovies(dataPath, posterWidthForCards))
-    };
-    fetchData();
-  }, [dataPath]);
-
-  console.log('movies: ' + JSON.stringify(movieResults));
-
-  if (movieResults === undefined)
-
+  const cards = results.slice(0, amount).map((item: Movie) => {
     return (
-      <Spinner animation='grow' variant='primary' role='status'>
-        <span className='sr-only'>Loading...</span>
-      </Spinner>
-    )
-
-  const cards = movieResults.slice(0, amount).map((item: Movie) => {
-    return (
-      <div className='cards mt-4' style={{ width: 250 }}>
-        <Card>
-          <Card.Img variant='top' key={item.id} src={item.poster_path} />
-          <Card.Body>
-            <Card.Title>{item.title}</Card.Title>
-            <Card.Text>
-              <p>Rated: {item.vote_average}</p>
-              <StarRatingComponent
-                name={`rate` + item.id}
-                starCount={10}
-                value={item.vote_average}
-                starColor={'#0066ff'}
-              >
-              </StarRatingComponent>
-            </Card.Text>
-
-          </Card.Body>
-          <Card.Footer>
-            <a href='/detail'>
+      <div className='cards h-100 mt-4' style={{ width: 250 }} key={item.id}>
+        <a href='/detail'>
+          <Card >
+            <Card.Img variant='top' src={item.poster_path} />
+            <Card.Body>
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Text>
+                <p>Rated: {item.vote_average}</p>
+                <StarRatingComponent
+                  name={`rate` + item.id}
+                  starCount={10}
+                  value={item.vote_average}
+                  starColor={'#0066ff'}
+                >
+                </StarRatingComponent>
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
               <i className='bi bi-eye text-center'></i>
-            </a>
-          </Card.Footer>
-        </Card>
+            </Card.Footer>
+          </Card>
+        </a>
       </div>
     )
   })
   return (
-    <div className='home-cards'>
+    <div className='cards-container'>
       <h2>{title}</h2>
       <CardDeck>
         {cards}
