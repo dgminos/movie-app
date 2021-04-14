@@ -10,11 +10,15 @@ interface Props {
 const Layout: FC<Props> = ({ children, hideHeader, hideFooter = false }) => {
     return (
         // <div className="layout">
-        <div className="contenedor">
+        // <div className="layout-container">
+        <>
             {!hideHeader && <Header />}
-            {children}
+            <main className='layout-main'>
+                <div className="layout-main-container">{children}</div>
+            </main>
             {!hideFooter && <Footer />}
-        </div>
+        </>
+        //  </div> 
         // </div>
     )
 }

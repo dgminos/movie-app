@@ -1,30 +1,24 @@
-import React, { useState, useEffect, FC } from 'react'
+import React, { FC } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Carousel from 'react-bootstrap/Carousel'
 import Button from 'react-bootstrap/Button'
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css'
-import { Movie, fetchMovies } from '../../../../fetch/fetchMovies'
 import './slider.css'
-
+import { Movie, useFetch } from '../../../../hooks/useFetch'
 
 const Slider: FC = () => {
-    const [movieResults, setMovieResults] = useState<Movie[]>([]);
 
-    useEffect(() => {
+    const endpoint = "11/recommendations";
+    const imageWidth = 1280;
+    const [{ loading, response, error }, doFetchPage] = useFetch(endpoint, imageWidth, 1);
 
-        const fetchData = async () => {
-            setMovieResults(await fetchMovies('11/recommendations', 1280))
-        };
-        fetchData();
-    }, []);
-
-    const carouselItems = movieResults.slice(0, 6).map((item: Movie, index: number) => {
+    const carouselItems = response.results.slice(0, 6).map((item: Movie, index: number) => {
         return (
             <Carousel.Item>
                 <img
                     className='d-block slider'
                     key={index}
-                    // style={{ height: 400 }}
+                    style={{ height: 400 }}
                     src={item.backdrop_path}
                     alt={item.title}
                 />
