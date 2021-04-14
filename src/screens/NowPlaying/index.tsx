@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import Spinner from 'react-bootstrap/esm/Spinner'
 import { Layout } from '../../components'
 import { Cards } from '../../components/Cards'
@@ -12,7 +12,7 @@ const NowPlaying: FC = () => {
     const endpoint = '/now_playing';
     const requiredImageWidth = 500;
     // const [currentPage, setCurrentPage] = useState(initialPage)
-    const [{ loading, response, error }, doFetchPage] = useFetch(endpoint, requiredImageWidth, 1);
+    const [{ loading, response, error, page }, doFetchPage] = useFetch(endpoint, requiredImageWidth, 1);
 
     if (loading) {
         return (
@@ -29,8 +29,7 @@ const NowPlaying: FC = () => {
             <Cards amount={20} results={response.results} title='Now Playing' />
 
             <ReactPaginate
-                // initialPage={1}
-                // forcePage={selectedItem.selected}
+                initialPage={page - 1}
                 previousLabel={<i className="bi bi-caret-left"></i>}
                 nextLabel={<i className="bi bi-caret-right"></i>}
                 breakLabel={'...'}
@@ -41,9 +40,6 @@ const NowPlaying: FC = () => {
                 onPageChange={(selectedItem) => { doFetchPage(selectedItem.selected + 1) }}
                 containerClassName={'pagination'}
                 activeClassName={'active'}
-            // disableInitialCallback={true}
-            // onPageActive={(selectedItem) => doFetchPage(selectedItem.page)}
-
             />
 
         </Layout>
