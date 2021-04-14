@@ -70,5 +70,5 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
     }, [endpoint, imageWidth, page]
     )
 
-    return [{ loading, response, error }, setPage] as const
+    return [{ loading, response, error, page }, setPage] as const
 }

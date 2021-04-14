@@ -16,7 +16,7 @@ const Cards: FC<CardsProps> = ({ amount, results, title }) => {
   const cards = results.slice(0, amount).map((item: Movie) => {
     return (
       <div className='cards h-100 mt-4' style={{ width: 250 }} key={item.id}>
-        <a href='/detail'>
+        <a href={'/details/' + item.id}>
           <Card >
             <Card.Img variant='top' src={item.poster_path} />
             <Card.Body>
