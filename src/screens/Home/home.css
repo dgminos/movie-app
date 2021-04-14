@@ -1,4 +1,57 @@
-.main-pg{
+ .main-pg{
     background-color: #fff;
-    min-height: 1000px;
+     min-height: 1000px; 
 }
+
+ .wraper {
+    max-width: 2000px;  
+	width: 100%;
+	margin: 40px auto; 
+} 
+
+.list-group {
+   display: grid;  
+   grid-template-columns: auto auto;
+     column-gap: 10%;
+     width: 100%;    
+ } 
+
+   .popular-list {
+height: 50vh;
+width: 100%; 
+border: 1px solid #161515;
+ }  
+
+ .top-rated-list {
+   height: 50vh;
+   width: 100%;
+   border: 1px solid #161515;
+ }
+
+ @media (max-width: 767px) {
+  
+   .list-group {
+     display: block
+   }
+     
+.top-rated-list {
+  margin-top: 35px;
+} 
+
+.popular-list, .top-rated-list{
+  height: 61vh;
+}
+   }
+
+   /* Portrait cel */
+
+   @media (min-width: 320px) and (max-width: 480px) {
+  
+    .popular-list, .top-rated-list {
+      height: 54vh;
+  }
+
+  .wraper {
+    margin: 43px auto;
+}
+   }
