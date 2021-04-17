@@ -9,10 +9,10 @@ import './nowPlaying.css'
 const NowPlaying: FC = () => {
 
     // const initialPage = 1;
-    const endpoint = '/now_playing';
+    const endpoint = '/movie/now_playing';
     const requiredImageWidth = 500;
     // const [currentPage, setCurrentPage] = useState(initialPage)
-    const [{ loading, response, error, page }, doFetchPage] = useFetch(endpoint, requiredImageWidth, 1);
+    const [{ loading, data, error, page }, doFetchPage] = useFetch(endpoint, requiredImageWidth, 1);
 
     if (loading) {
         return (
@@ -26,7 +26,7 @@ const NowPlaying: FC = () => {
     }
     return (
         <Layout>
-            <Cards amount={20} results={response.results} title='Now Playing' />
+            <Cards amount={20} results={data.results} title='Now Playing' />
 
             <ReactPaginate
                 initialPage={page - 1}
@@ -34,7 +34,7 @@ const NowPlaying: FC = () => {
                 nextLabel={<i className="bi bi-caret-right"></i>}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
-                pageCount={response.total_pages}
+                pageCount={data.total_pages}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={3}
                 onPageChange={(selectedItem) => { doFetchPage(selectedItem.selected + 1) }}

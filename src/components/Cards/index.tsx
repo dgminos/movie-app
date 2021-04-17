@@ -3,6 +3,7 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 import StarRatingComponent from 'react-star-rating-component'
 import { Movie } from '../../hooks/useFetch'
+import { Link } from 'react-router-dom'
 import './cards.css'
 
 interface CardsProps {
@@ -15,8 +16,8 @@ const Cards: FC<CardsProps> = ({ amount, results, title }) => {
 
   const cards = results.slice(0, amount).map((item: Movie) => {
     return (
-      <div className='cards h-100 mt-4' style={{ width: 250 }} key={item.id}>
-        <a href={'/details/' + item.id}>
+      <div className='cards h-100 mt-4' style={{ width: 300 }} key={item.id}>
+        <Link to={'/movie/' + item.id}>
           <Card >
             <Card.Img variant='top' src={item.poster_path} />
             <Card.Body>
@@ -36,7 +37,7 @@ const Cards: FC<CardsProps> = ({ amount, results, title }) => {
               <i className='bi bi-eye text-center'></i>
             </Card.Footer>
           </Card>
-        </a>
+        </Link>
       </div>
     )
   })
