@@ -1,0 +1,24 @@
+import { AxiosResponse } from "axios";
+import { Movie, MovieDBResponse } from "../../hooks/useFetch";
+import { api } from "../../utils";
+
+const fetchData = async (queryParam: string) => {
+    let response: AxiosResponse<MovieDBResponse> = await api.get('/search/movie', {
+        params: {
+            page: 1,
+            query: queryParam
+        }
+    });
+    const moviesWithImages: Movie[] = response.data.results.map((m: Movie) => ({
+        id: m.id,
+        backdrop_path: 'https://image.tmdb.org/t/p/w500' + m.backdrop_path,
+        popularity: m.popularity,
+        title: m.title,
+        poster_path: 'https://image.tmdb.org/t/p/w500' + m.poster_path,
+        overview: m.overview,
+        vote_average: m.vote_average,
+    }));
+    return { moviesWithImages, response }
+}
+
+export { fetchData }

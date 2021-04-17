@@ -32,6 +32,7 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
     const [error, setError] = useState(false)
 
     useEffect(() => {
+        let ignore = false;
 
         const fetchData = async () => {
             setError(false)
@@ -58,7 +59,7 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
 
                 console.log('fetched data for page ' + page + ' and query ' + query + ". status: " + response.status + " " + response.statusText);
                 //   console.log('movie results with full image urls: ' + JSON.stringify(moviesWithImages));
-                setData({ page: response.data.page, results: moviesWithImages, total_pages: response.data.total_pages, total_results: response.data.total_results });
+                if (!ignore) setData({ page: response.data.page, results: moviesWithImages, total_pages: response.data.total_pages, total_results: response.data.total_results });
             } catch (error) {
                 setError(true)
                 console.log('error caught while fetching data: ' + error);
