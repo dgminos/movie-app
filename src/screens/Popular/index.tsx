@@ -4,13 +4,14 @@ import { Layout } from '../../components'
 import { Cards } from '../../components/Cards'
 import { useFetch } from '../../hooks';
 import Paginate from 'react-paginate'
+import { Alert } from 'react-bootstrap';
 
 const Popular: FC = () => {
-    const path = "/popular";
+    const path = '/movie/popular';
 
     const requiredImageWidth = 500;
 
-    const [{ loading, response, error }, doFetchPage] = useFetch(path, requiredImageWidth, 1);
+    const [{ loading, data, error }, doFetchPage] = useFetch(path, requiredImageWidth, 1);
 
 
     if (loading) {
@@ -22,21 +23,26 @@ const Popular: FC = () => {
     }
 
     if (error) {
-        return <p>:(</p>
+        return (
+            <Alert variant='danger text-center' className='error-alert'>
+                <Alert.Heading>An error has occurred.</Alert.Heading>
+                <p>
+                    Please try again by refreshing the page.
+            </p>
+            </Alert>
+        )
     }
-
-    console.log("Popular results: " + JSON.stringify(response))
 
     return (
         <Layout>
-            <Cards amount={20} results={response.results} title='Popular' />
+            <Cards amount={20} results={data.results} title='Popular' />
 
             <Paginate
                 previousLabel={'previous'}
                 nextLabel={'next'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
-                pageCount={response.total_pages}
+                pageCount={data.total_pages}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={4}
                 onPageChange={(selectedItem) => doFetchPage(selectedItem.selected)}

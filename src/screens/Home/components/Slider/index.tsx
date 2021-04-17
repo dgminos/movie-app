@@ -10,9 +10,9 @@ import './slider.css'
 
 const Slider: FC = () => {
 
-    const endpoint = "11/recommendations";
+    const endpoint = '/movie/11/recommendations';
     const imageWidth = 1280;
-    const [{ loading, response, error }] = useFetch(endpoint, imageWidth, 1);
+    const [{ loading, data, error }] = useFetch(endpoint, imageWidth, 1);
 
     if (loading) {
         return (
@@ -33,7 +33,7 @@ const Slider: FC = () => {
         )
 
     }
-    const carouselItems = response.results.slice(0, 6).map((item: Movie, index: number) => {
+    const carouselItems = data.results.slice(0, 6).map((item: Movie, index: number) => {
         return (
             <Carousel.Item>
                 <img
@@ -46,8 +46,8 @@ const Slider: FC = () => {
                 <Carousel.Caption className='carousel-caption mb-5'>
                     <h3>{item.title}</h3>
                     <p>{item.overview}</p>
-                    <Link to={`/details/${item.id}`}>
-                        <Button href='/movie/:id' style={{ fontSize: 20 }}>See more...</Button>
+                    <Link to={`/movie/${item.id}`}>
+                        <Button href={`/movie/${item.id}`} style={{ fontSize: 20 }}>See more...</Button>
                     </Link>
                 </Carousel.Caption>
 

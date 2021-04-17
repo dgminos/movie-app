@@ -12,7 +12,7 @@ interface ListProps {
 const List: FC<ListProps> = ({ endpoint, title }) => {
 
     const imageWidth = 92;
-    const [{ loading, response, error }] = useFetch(endpoint, imageWidth, 1);
+    const [{ loading, data, error }] = useFetch(endpoint, imageWidth, 1);
 
     if (loading) {
         return (
@@ -33,11 +33,11 @@ const List: FC<ListProps> = ({ endpoint, title }) => {
         )
     }
 
-    const listItems = response.results.slice(0, 10).map((item: Movie) => {
+    const listItems = data.results.slice(0, 10).map((item: Movie) => {
 
         return (
             <ListGroup.Item >
-                <Link to={`/details/${item.id}`} className='list-link'>
+                <Link to={`/movie/${item.id}`} className='list-link'>
                     <Image className='list-img' src={item.poster_path} />
                     <span className='movie-title'>{item.title}</span>
                     <Button className='list-chevron-btn'>

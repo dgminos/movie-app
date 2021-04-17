@@ -7,8 +7,8 @@ import { Container } from 'react-bootstrap'
 
 const Home: FC = () => {
 
-    const popular = '/popular';
-    const topRated = '/top_rated';
+    const popular = '/movie/popular';
+    const topRated = '/movie/top_rated';
 
     return (
         <Layout>

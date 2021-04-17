@@ -5,12 +5,12 @@ interface DetailProps {
     id: number
 }
 
-const Detail: FC<DetailProps> = (id) => {
+const Details: FC<DetailProps> = (id) => {
 
     const endpoint = "movie/" + id;
     const imageWidth = 1280;
 
-    const [{ loading, response, error }] = useFetch(endpoint, imageWidth, 1);
+    // const [{ loading, response, error }] = useFetch(endpoint, imageWidth, 1);
 
 
     return (
@@ -20,4 +20,4 @@ const Detail: FC<DetailProps> = (id) => {
     )
 }
 
-export { Detail }
+export { Details }
