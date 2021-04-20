@@ -15,7 +15,7 @@ const App: FC = () => {
           <Route path='/now_playing' component={NowPlaying} />
           <Route path='/popular' component={Popular} />
           <Route path='/search' component={Search} />
-          <Route path='/details/:id' component={Details} />
+          <Route path='/movie' component={Details} />
           <Route exact path='/' component={Home} />
         </Switch>
       </Router>

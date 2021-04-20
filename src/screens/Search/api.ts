@@ -17,6 +17,9 @@ const fetchData = async (queryParam: string) => {
         poster_path: 'https://image.tmdb.org/t/p/w500' + m.poster_path,
         overview: m.overview,
         vote_average: m.vote_average,
+        genres: m.genres,
+        release_date: m.release_date,
+        video: m.video
     }));
     return { moviesWithImages, response }
 }

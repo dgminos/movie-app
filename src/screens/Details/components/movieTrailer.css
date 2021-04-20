@@ -1,0 +1,21 @@
+.trailer {
+    width: 660px;
+    height: 290px;
+}
+
+ @media (min-width: 320px) and (max-width: 576px) {
+  
+    .trailer {
+        width: 350px;
+        height: 175px;
+  }
+
+
+}
+
+/* @media (min-width: 640px){
+    .trailer {
+        width: 440px;
+        height: 200px;
+  }
+}  */

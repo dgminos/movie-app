@@ -33,20 +33,20 @@ const Slider: FC = () => {
         )
 
     }
-    const carouselItems = data.results.slice(0, 6).map((item: Movie, index: number) => {
+    const carouselItems = data.results.slice(0, 6).map((item: Movie) => {
         return (
             <Carousel.Item>
                 <img
                     className='d-block slider'
-                    key={index}
+                    key={item.id}
                     style={{ height: 550 }}
-                    src={item.backdrop_path}
+                    src={item.backdrop_path!}
                     alt={item.title}
                 />
                 <Carousel.Caption className='carousel-caption mb-5'>
                     <h3>{item.title}</h3>
                     <p>{item.overview}</p>
-                    <Link to={`/movie/${item.id}`}>
+                    <Link to={`/movie/?id=${item.id}`}>
                         <Button href={`/movie/${item.id}`} style={{ fontSize: 20 }}>See more...</Button>
                     </Link>
                 </Carousel.Caption>
