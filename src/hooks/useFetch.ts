@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../utils'
 import { AxiosResponse } from 'axios'
-import imagenotfound from '../../assets/imagenotfound.png'
 
 export type MovieDBResponse = {
     page: number,
@@ -48,7 +47,6 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
 
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState<MovieDBResponse>({ page: 1, results: [], total_pages: 1, total_results: 1 })
-    // const [response, setResponse] = useState<MovieDBResponse | Movie>({ page: 1, results: [], total_pages: 1, total_results: 1 })
     const [page, setPage] = useState(initialPage)
     const [query, setQuery] = useState(' ')
     const [error, setError] = useState(false)
@@ -62,7 +60,6 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
             try {
                 console.log("query en useFetch:" + query);
                 const picSize = 'w' + imageWidth.toString();
-                //const { data } = await api.get(`${endpoint}${query ? '?query=' + query : ''}`,
                 let response: AxiosResponse<MovieDBResponse> = await api.get(endpoint, {
                     params: {
                         page: page,
@@ -71,12 +68,10 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
                 });
                 const moviesWithImages: Movie[] = response.data.results.map((m: Movie) => ({
                     id: m.id,
-                    backdrop_path: m.backdrop_path ? imageURL + picSize + m.backdrop_path : "https://images.unsplash.com/photo-1618863158881-7d8ecd5fb75c?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                    ,
+                    backdrop_path: m.backdrop_path ? imageURL + picSize + m.backdrop_path : null,
                     popularity: m.popularity,
                     title: m.title,
-                    poster_path: m.poster_path ? imageURL + picSize + m.poster_path : "https://images.unsplash.com/photo-1618863158881-7d8ecd5fb75c?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                    ,
+                    poster_path: m.poster_path ? imageURL + picSize + m.poster_path : null,
                     overview: m.overview,
                     vote_average: m.vote_average,
                     genres: m.genres,
@@ -85,7 +80,6 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
                 }));
 
                 console.log('fetched data for page ' + page + ' and query ' + query + ". status: " + response.status + " " + response.statusText);
-                //   console.log('movie results with full image urls: ' + JSON.stringify(moviesWithImages));
                 if (!ignore) setData({ page: response.data.page, results: moviesWithImages, total_pages: response.data.total_pages, total_results: response.data.total_results });
             } catch (error) {
                 setError(true)
