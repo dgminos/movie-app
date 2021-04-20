@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useState } from 'react'
-import { TextLeft } from 'react-bootstrap-icons';
+import { FC, useEffect, useState } from 'react'
+import { } from 'react-bootstrap-icons';
 import { Video } from '../../../hooks/useFetch';
 import { fetchMovieTrailer } from './fetchMovieTrailer'
 import './movieTrailer.css'
@@ -7,7 +7,7 @@ import './movieTrailer.css'
 const MovieTrailer: FC = () => {
 
     const [trailer, setTrailer] = useState<Video>({ id: 0, name: '', key: '', type: '', size: 0 });
-    const renderTrailer = (trailer.id != 0)
+    const renderTrailer = (trailer.id !== 0)
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 

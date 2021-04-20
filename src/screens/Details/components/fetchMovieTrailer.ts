@@ -1,4 +1,3 @@
-import React from 'react'
 import { AxiosResponse } from 'axios';
 import { Video, VideoResponse } from '../../../hooks/useFetch';
 import { api } from '../../../utils';

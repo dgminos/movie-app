@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { AxiosResponse } from "axios";
 import { Movie } from "../../hooks/useFetch";
 import { api } from "../../utils";
