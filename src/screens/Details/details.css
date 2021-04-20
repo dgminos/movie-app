@@ -1,0 +1,167 @@
+.details-container {
+display: flex;
+justify-content: center;
+width: 100%;
+ /* object-fit: cover;
+ background-repeat: no-repeat;
+background-position: center;
+background-size: cover; */
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ); 
+  /* background-color: royalblue;    */
+}
+
+/* .row {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+} */
+
+
+ .movie-info-header {
+    /* display: block; */
+    color: white;
+}  
+
+/* .movie-info-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+} */
+
+.movie-background {
+    position: absolute;
+    z-index: -1;
+    height: 90vh;
+     width: 100%; 
+    object-fit: cover;
+     background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+
+.movie-poster {
+    margin: 60px 20px;
+}
+
+/* .movie-trailer {
+    width: 50vw;
+    height: 30vh;
+} */
+
+.relase_date-rated-star {
+    font-size: 50px;
+}
+
+.star {
+    font-size: 30px;
+    text-shadow: 0 0 3px rgb(252, 246, 246);
+}
+
+.overview {
+    font-size: 22px;
+}
+
+.gerne-list {
+    font-size: 20px;
+}
+
+.movie-info-header h2 {
+    text-align: left;
+}
+
+.movie-info-poster {
+    padding-left: 150px;
+}
+
+ /* Portrait cel */
+
+ @media (min-width: 320px) and (max-width: 576px) {
+  
+    /* main {
+        width: 111%;
+    } */
+
+    .movie-background {
+      display: none;
+  }
+
+  .details-container {
+      display: block;
+      width: 110%;
+      justify-content: center;
+      align-items: center;
+     background-color: rgb(78, 78, 80); 
+  }
+
+  .layout-header {
+    width: 100%;
+}
+
+.layout-main {
+    width: 100%;
+}
+
+  /* .movie-poster {
+      justify-content: center;
+       width: 90%;
+    margin: 5px 12px; 
+  } */
+
+  .movie-info-poster {
+    padding-left: 0px;
+}
+
+  .movie-info-header h2 {
+    text-align: center;
+}
+
+.star {
+    font-size: 20px;
+    text-shadow: 0 0 3px rgb(252, 246, 246);
+    text-align: center;
+}
+.overview {
+    font-size: 15px; 
+}
+
+.gerne-list {
+    font-size: 15px;
+    text-align: center;
+}
+
+.movie-info-header {
+    text-align: center;
+}
+
+.movie-trailer{  
+    padding-right: 11%;
+} 
+}
+
+/* Landscape cel */
+
+/* @media (min-width: 640px) and (max-width: 720px){
+
+    main {
+        width: 126%;
+    }
+    .movie-background {
+        display: none;
+    }
+
+    .details-container {
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(90, 100, 194);
+    }
+
+    .movie-poster {
+    width: 85%;
+    height: 85%;
+    object-fit: cover;
+}
+
+
+} */

@@ -36,9 +36,9 @@ const List: FC<ListProps> = ({ endpoint, title }) => {
     const listItems = data.results.slice(0, 10).map((item: Movie) => {
 
         return (
-            <ListGroup.Item >
-                <Link to={`/movie/${item.id}`} className='list-link'>
-                    <Image className='list-img' src={item.poster_path} />
+            <ListGroup.Item key={item.id}>
+                <Link to={`/movie/?id=${item.id}`} className='list-link'>
+                    <Image className='list-img' src={item.poster_path!} />
                     <span className='movie-title'>{item.title}</span>
                     <Button className='list-chevron-btn'>
                         <i className='bi bi-chevron-right'></i>

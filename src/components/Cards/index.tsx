@@ -15,11 +15,15 @@ interface CardsProps {
 const Cards: FC<CardsProps> = ({ amount, results, title }) => {
 
   const cards = results.slice(0, amount).map((item: Movie) => {
+    // const cardImage = <Card.Img variant='top' src={item.poster_path!} />
+    // const placeholder = <Card.Img variant='top' src={'../../assets/imagenotfound.png'} />
+
     return (
       <div className='cards h-100 mt-4' style={{ width: 300 }} key={item.id}>
-        <Link to={'/movie/' + item.id}>
+        <Link to={'/movie/?id=' + item.id}>
           <Card >
-            <Card.Img variant='top' src={item.poster_path} />
+            {/* {item.poster_path ? cardImage : placeholder} */}
+            <Card.Img variant='top' src={item.poster_path!} />
             <Card.Body>
               <Card.Title>{item.title}</Card.Title>
               <Card.Text>
