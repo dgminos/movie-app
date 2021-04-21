@@ -11,7 +11,7 @@ const Popular: FC = () => {
 
     const requiredImageWidth = 500;
 
-    const [{ loading, data, error }, doFetchPage] = useFetch(path, requiredImageWidth, 1);
+    const [{ loading, data, error, page }, doFetchPage] = useFetch(path, requiredImageWidth, 1);
 
 
     if (loading) {
@@ -38,14 +38,15 @@ const Popular: FC = () => {
             <Cards amount={20} results={data.results} title='Popular' />
 
             <Paginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
+                initialPage={page - 1}
+                previousLabel={<i className="bi bi-caret-left"></i>}
+                nextLabel={<i className="bi bi-caret-right"></i>}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
                 pageCount={data.total_pages}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={4}
-                onPageChange={(selectedItem) => doFetchPage(selectedItem.selected)}
+                onPageChange={(selectedItem) => doFetchPage(selectedItem.selected + 1)}
                 containerClassName={'pagination'}
                 activeClassName={'active'}
             />

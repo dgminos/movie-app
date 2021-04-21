@@ -43,7 +43,7 @@ export type Video = {
 
 const imageURL = 'https://image.tmdb.org/t/p/';
 
-export const useFetch = (endpoint: string, imageWidth: number, initialPage: number) => {
+export const useFetch = (endpoint: string, posterImageSize: number, initialPage: number) => {
 
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState<MovieDBResponse>({ page: 1, results: [], total_pages: 1, total_results: 1 })
@@ -59,7 +59,8 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
             setLoading(true)
             try {
                 console.log("query en useFetch:" + query);
-                const picSize = 'w' + imageWidth.toString();
+                const posterSize = 'w' + posterImageSize.toString();
+                const backdropSize = 'w1280';
                 let response: AxiosResponse<MovieDBResponse> = await api.get(endpoint, {
                     params: {
                         page: page,
@@ -68,10 +69,10 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
                 });
                 const moviesWithImages: Movie[] = response.data.results.map((m: Movie) => ({
                     id: m.id,
-                    backdrop_path: m.backdrop_path ? imageURL + picSize + m.backdrop_path : null,
+                    backdrop_path: m.backdrop_path ? imageURL + backdropSize + m.backdrop_path : null,
                     popularity: m.popularity,
                     title: m.title,
-                    poster_path: m.poster_path ? imageURL + picSize + m.poster_path : null,
+                    poster_path: m.poster_path ? imageURL + posterSize + m.poster_path : null,
                     overview: m.overview,
                     vote_average: m.vote_average,
                     genres: m.genres,
@@ -90,7 +91,7 @@ export const useFetch = (endpoint: string, imageWidth: number, initialPage: numb
             }
         }
         fetchData();
-    }, [endpoint, imageWidth, page, query]
+    }, [endpoint, posterImageSize, page, query]
     )
 
     return [{ loading, data, error, page }, setPage, setQuery] as const
