@@ -1,0 +1,1 @@
+Aplicación creada para el trabajo práctico final del curso de Frontend de Ada.

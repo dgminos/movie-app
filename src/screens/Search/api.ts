@@ -1,5 +1,7 @@
+
 import { AxiosResponse } from "axios";
-import { Movie, MovieDBResponse } from "../../hooks/useFetch";
+import { Movie, MovieDBResponse } from "../../types";
+
 import { api } from "../../utils";
 
 const fetchData = async (queryParam: string) => {

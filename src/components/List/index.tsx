@@ -1,13 +1,9 @@
 import React, { FC } from 'react'
 import { Alert, Button, Image, ListGroup, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { Movie, useFetch } from '../../hooks/useFetch'
+import { useFetch } from '../../hooks/useFetch'
+import { ListProps, Movie } from '../../types'
 import './list.css'
-
-interface ListProps {
-    endpoint: string
-    title: string
-}
 
 const List: FC<ListProps> = ({ endpoint, title }) => {
 

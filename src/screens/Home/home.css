@@ -17,30 +17,30 @@
  } 
 
    .popular-list {
-height: 50vh;
+height: 76vh;
 width: 100%; 
 border: 1px solid #161515;
  }  
 
  .top-rated-list {
-   height: 50vh;
+   height: 76vh;
    width: 100%;
    border: 1px solid #161515;
  }
 
- @media (max-width: 767px) {
+ @media (max-width: 812px) {
   
    .list-group {
      display: block
    }
      
-.top-rated-list {
-  margin-top: 35px;
-} 
+   .top-rated-list {
+     margin-top: 35px;
+   } 
 
-.popular-list, .top-rated-list{
-  height: 61vh;
-}
+   .popular-list, .top-rated-list{
+    height: 86vh;
+   }
    }
 
    /* Portrait cel */
@@ -48,10 +48,13 @@ border: 1px solid #161515;
    @media (min-width: 320px) and (max-width: 480px) {
   
     .popular-list, .top-rated-list {
-      height: 54vh;
+      height: 77vh;
   }
 
-  .wraper {
-    margin: 43px auto;
-}
+    .wraper {
+      margin: 43px auto;
+  }
    }
+
+
+

@@ -2,22 +2,19 @@ import React, { FC } from 'react'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Card from 'react-bootstrap/Card'
 import StarRatingComponent from 'react-star-rating-component'
-import { Movie } from '../../hooks/useFetch'
 import { Link } from 'react-router-dom'
+import imagenotfound from '../../assets/imagenotfound.png'
+import { Movie } from '../../types'
+import { CardsProps } from '../../types'
 import './cards.css'
 
-interface CardsProps {
-  amount: number,
-  results: Movie[],
-  title: string
-}
 
 const Cards: FC<CardsProps> = ({ amount, results, title }) => {
 
   const cards = results.slice(0, amount).map((item: Movie) => {
     const posterAvailable = (item.poster_path !== null && !item.poster_path.includes('null'))
     const cardImage = <Card.Img variant='top' src={item.poster_path!} />
-    const placeholder = <Card.Img variant='top' src={'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'} />
+    const placeholder = <Card.Img variant='top' src={imagenotfound} />
 
     return (
       <div className='cards h-100 mt-4' style={{ width: 300 }} key={item.id}>

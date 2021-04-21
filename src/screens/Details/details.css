@@ -38,6 +38,7 @@ background-size: cover; */
      background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
+height: 131%;
 }
 
 .movie-poster {
@@ -59,7 +60,7 @@ background-size: cover;
 }
 
 .overview {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .gerne-list {
@@ -82,13 +83,21 @@ background-size: cover;
         width: 111%;
     } */
 
+    .layout-header {
+        width: 374px;
+    }
+.movie-poster {
+    width: 75%;
+    margin: 50px 55px;
+    padding: 0px;
+}
     .movie-background {
       display: none;
   }
 
   .details-container {
       display: block;
-      width: 110%;
+      width: 100%;
       justify-content: center;
       align-items: center;
      background-color: rgb(78, 78, 80); 
@@ -112,9 +121,16 @@ background-size: cover;
     padding-left: 0px;
 }
 
+.movie-info-header {
+    margin-top: -25px;
+}
   .movie-info-header h2 {
     text-align: center;
 }
+
+/* h3 {
+    margin-left: 0px;
+} */
 
 .star {
     font-size: 20px;
@@ -134,34 +150,53 @@ background-size: cover;
     text-align: center;
 }
 
-.movie-trailer{  
+/* .movie-trailer{  
     padding-right: 11%;
-} 
+}  */
 }
 
 /* Landscape cel */
 
-/* @media (min-width: 640px) and (max-width: 720px){
+ @media (min-width: 576px)and (max-width: 1030px){
 
-    main {
-        width: 126%;
-    }
-    .movie-background {
+     main {
+        width: 100%;
+    } 
+      .movie-background {
         display: none;
-    }
+    }  
 
     .details-container {
-        width: 80%;
+        width: 100%;
         justify-content: center;
         align-items: center;
-        background-color: rgb(90, 100, 194);
+        background-color: rgb(78, 78, 80); 
     }
 
-    .movie-poster {
-    width: 85%;
-    height: 85%;
-    object-fit: cover;
+    .movie-info-poster {
+        padding-left: 10px;
+        max-height: 650px;
+    }
+
+     .movie-info-header {
+        width: 330px;
+    }
+    
+    .movie-info-content {
+        margin-left: -22px;
+    }
+
+     .movie-poster {
+         width: 300px;
+         height: 75%; 
+         padding: 25px; 
+        object-fit: cover;
+} 
+
+     .movie-trailer {
+         margin-left: -311px;
+         margin-top: 55px;
 }
 
+} 
 
-} */

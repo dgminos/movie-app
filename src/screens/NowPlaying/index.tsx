@@ -8,10 +8,9 @@ import './nowPlaying.css'
 
 const NowPlaying: FC = () => {
 
-    // const initialPage = 1;
     const endpoint = '/movie/now_playing';
     const requiredImageWidth = 500;
-    // const [currentPage, setCurrentPage] = useState(initialPage)
+
     const [{ loading, data, error, page }, doFetchPage] = useFetch(endpoint, requiredImageWidth, 1);
 
     if (loading) {
@@ -27,7 +26,6 @@ const NowPlaying: FC = () => {
     return (
         <Layout>
             <Cards amount={20} results={data.results} title='Now Playing' />
-
             <ReactPaginate
                 initialPage={page - 1}
                 previousLabel={<i className="bi bi-caret-left"></i>}
@@ -41,7 +39,6 @@ const NowPlaying: FC = () => {
                 containerClassName={'pagination'}
                 activeClassName={'active'}
             />
-
         </Layout>
 
     )

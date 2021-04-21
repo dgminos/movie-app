@@ -9,8 +9,6 @@ interface Props {
 
 const Layout: FC<Props> = ({ children, hideHeader, hideFooter = false }) => {
     return (
-        // <div className="layout">
-        // <div className="layout-container">
         <>
             {!hideHeader && <Header />}
             <main className='layout-main'>
@@ -18,8 +16,6 @@ const Layout: FC<Props> = ({ children, hideHeader, hideFooter = false }) => {
             </main>
             {!hideFooter && <Footer />}
         </>
-        //  </div> 
-        // </div>
     )
 }
 

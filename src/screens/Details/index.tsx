@@ -1,10 +1,11 @@
 
 import React, { FC, useEffect, useState } from 'react'
 import { Layout } from '../../components';
-import { Movie } from '../../hooks/useFetch';
 import { fetchData } from './fetchData'
 import { MovieTrailer } from './components/MovieTrailer'
 import StarRatingComponent from 'react-star-rating-component';
+import { Movie } from '../../types';
+import imagenotfound from '../../assets/imagenotfound.png'
 import './details.css'
 
 const Details: FC = () => {
@@ -13,6 +14,12 @@ const Details: FC = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id')
     // const renderResults = (movie.id != 0)
+    const posterAvailable = (movie.id !== 0 && movie.poster_path !== null)
+    const backdropAvailable = (movie.id !== 0 && movie.backdrop_path !== null)
+    const posterImg = <img className='movie-poster' alt='poster' src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}></img>
+    const backdropImg = <div className='movie-background' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` }}></div>
+    const posterImgPlaceholder = <img className='movie-poster' alt='poster' src={imagenotfound}></img>
+    const backdropImgPlaceholder = <div className='movie-background' style={{ backgroundColor: `#3c3c3c` }}></div>
 
     useEffect(() => {
         console.log('id: ' + id)
@@ -28,18 +35,20 @@ const Details: FC = () => {
     return (
         <Layout>
             <div className='details-container'>
-                <div className='movie-background' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` }}>
-                </div>
+                {/* <div className='movie-background' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` }}>
+                </div> */}
+                {backdropAvailable ? backdropImg : backdropImgPlaceholder}
                 <div className='row'>
                     <div className='col-sm-6 movie-info-poster'>
 
-                        <img className='movie-poster' src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+                        {/* <img className='movie-poster' src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
                             alt='movie poster'>
-                        </img>
+                        </img> */}
+                        {posterAvailable ? posterImg : posterImgPlaceholder}
                     </div>
-                    <div className='col-sm-6 movie-info-header mt-1'>
+                    <div className='col-sm-6 movie-info-header'>
                         <div className='row'>
-                            <h2>{movie.title}</h2>
+                            <h3>{movie.title}</h3>
                             <span style={{ fontSize: 20 }}>Release Date: {movie.release_date}</span>
                             <span style={{ fontSize: 20 }}>Rated: {movie.vote_average}</span>
                         </div>
@@ -54,11 +63,11 @@ const Details: FC = () => {
                             </div>
                         </div>
                         <div className='row movie-info-content'>
-                            <h3>Overview</h3>
+                            <h5>Overview</h5>
                             <p className='overview'>{movie.overview}</p>
                             {movie.genres &&
                                 <>
-                                    <h3>Genres</h3>
+                                    <h5>Genres</h5>
                                     <ul>
                                         {movie.genres.map(genre =>
                                             <li className='gerne-list' key={genre.id}>{genre.name}</li>)}
