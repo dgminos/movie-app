@@ -9,7 +9,6 @@ const App: FC = () => {
   return (
 
     <main>
-      {/* <div className="pages"> */}
       <Router>
         <Switch>
           <Route path='/now_playing' component={NowPlaying} />
@@ -19,7 +18,6 @@ const App: FC = () => {
           <Route exact path='/' component={Home} />
         </Switch>
       </Router>
-      {/* </div> */}
     </main>
 
   );

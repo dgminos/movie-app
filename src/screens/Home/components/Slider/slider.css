@@ -1,7 +1,8 @@
 .carousel-caption {
     background-color: #a7a7a7cf;
     opacity: .9;
-    font-size: 25px;
+    font-size: 15px;
+    color:rgb(12, 12, 12)
 }
 
 .slider{
@@ -13,5 +14,5 @@
 .error-alert {
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 30px;
       }

@@ -1,20 +1,20 @@
 
 .header-list {
-  width: 100%;
+    width: 100%;
     background-color: #0e1527;
     color: #fff;
     font-size: 20px;
     text-align: center;
-     padding: 20px;  
+    padding: 20px;  
   }
 
   .scroll{
-    height: 40vh;
+    height: 65vh;
     overflow: scroll;
   }
  
   .detail-button{
-  color:#1890ff;
+    color:#1890ff;
   }
 
   .detail-button:hover{
@@ -22,7 +22,7 @@
   }
 
    .movie-item:hover{
-  background-color: #b9bcbe;
+     background-color: #b9bcbe;
   } 
 
   h4 {
@@ -32,13 +32,13 @@
 
   .list {
     display: block;
-    height: 60vh;
+    height: 76vh;
     width: 100%;
   }
 
    .list-img {
     max-height: 10vh;
-     border-radius: 50%; 
+    border-radius: 50%; 
     height: 60px;
     width: 60px;
     position: center;
@@ -47,7 +47,8 @@
   } 
 
   .movie-title {
-    font-size: 20px;
+    font-size: 15px;
+    color: rgb(46, 45, 46);
   }
 
   .list-link {

@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { Form } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import { Cards, Layout } from '../../components';
-import { MovieDBResponse } from '../../hooks/useFetch';
+import { MovieDBResponse } from '../../types';
 import { fetchData } from './api'
 
 const Search: FC = () => {

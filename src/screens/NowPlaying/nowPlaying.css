@@ -3,7 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    list-style: none;  
+    list-style: none;
+    margin-top: 15px;  
 } 
 
 .pagination li {
@@ -15,7 +16,6 @@
     line-height: 28px;
     text-align: center;
     list-style: none;
-     /* float: left;  */
     border: 1px solid #d9d9d9;
     color: #666;
     margin-right: 8px;

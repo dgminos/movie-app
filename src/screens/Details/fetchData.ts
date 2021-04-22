@@ -1,6 +1,6 @@
 
 import { AxiosResponse } from "axios";
-import { Movie } from "../../hooks/useFetch";
+import { Movie } from "../../types";
 import { api } from "../../utils";
 
 

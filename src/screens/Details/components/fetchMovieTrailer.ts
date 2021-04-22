@@ -1,5 +1,7 @@
+
 import { AxiosResponse } from 'axios';
-import { Video, VideoResponse } from '../../../hooks/useFetch';
+import { Video, VideoResponse } from '../../../types';
+
 import { api } from '../../../utils';
 
 const fetchMovieTrailer = async (id: string) => {
@@ -14,10 +16,6 @@ const fetchMovieTrailer = async (id: string) => {
             .filter(v => (v.type === 'Trailer'))
             .reduce((prev, current) => (prev.size > current.size) ? prev : current);
     }
-
-
-
-    console.log("best trailer: " + JSON.stringify(trailer));
 
     return { trailer } as const
 };

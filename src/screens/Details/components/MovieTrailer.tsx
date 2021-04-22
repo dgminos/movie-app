@@ -1,6 +1,7 @@
+import React from 'react'
 import { FC, useEffect, useState } from 'react'
 import { } from 'react-bootstrap-icons';
-import { Video } from '../../../hooks/useFetch';
+import { Video } from '../../../types';
 import { fetchMovieTrailer } from './fetchMovieTrailer'
 import './movieTrailer.css'
 
@@ -22,14 +23,14 @@ const MovieTrailer: FC = () => {
 
     let htmlTrailer =
         <>
-            <h3>Watch Trailer</h3>
+            <h5>Watch Trailer</h5>
             <iframe
                 className="trailer"
                 src={`https://www.youtube.com/embed/${trailer.key}`}
                 title="YouTube video player"
                 frameBorder="0"
                 allowFullScreen
-            ></iframe>;
+            ></iframe>
         </>
     return (
         <>

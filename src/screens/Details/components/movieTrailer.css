@@ -9,13 +9,11 @@
         width: 350px;
         height: 175px;
   }
-
-
 }
 
-/* @media (min-width: 640px){
+ @media (min-width: 640px){
     .trailer {
-        width: 440px;
-        height: 200px;
+        width: 600px;
+        height: 275px;
   }
-}  */
+}  

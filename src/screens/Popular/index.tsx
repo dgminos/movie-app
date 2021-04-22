@@ -5,14 +5,14 @@ import { Cards } from '../../components/Cards'
 import { useFetch } from '../../hooks';
 import Paginate from 'react-paginate'
 import { Alert } from 'react-bootstrap';
+import './popular.css'
 
 const Popular: FC = () => {
-    const path = '/movie/popular';
 
+    const path = '/movie/popular';
     const requiredImageWidth = 500;
 
     const [{ loading, data, error, page }, doFetchPage] = useFetch(path, requiredImageWidth, 1);
-
 
     if (loading) {
         return (
@@ -36,7 +36,6 @@ const Popular: FC = () => {
     return (
         <Layout>
             <Cards amount={20} results={data.results} title='Popular' />
-
             <Paginate
                 initialPage={page - 1}
                 previousLabel={<i className="bi bi-caret-left"></i>}

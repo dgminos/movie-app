@@ -3,9 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Carousel from 'react-bootstrap/Carousel'
 import Button from 'react-bootstrap/Button'
 import 'react-bootstrap-carousel/dist/react-bootstrap-carousel.css'
-import { Movie, useFetch } from '../../../../hooks/useFetch'
+import { useFetch } from '../../../../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import { Alert, Spinner } from 'react-bootstrap'
+import { Movie } from '../../../../types'
 import './slider.css'
 
 const Slider: FC = () => {
@@ -39,7 +40,7 @@ const Slider: FC = () => {
                 <img
                     className='d-block slider'
                     key={item.id}
-                    style={{ height: 550 }}
+                    style={{ height: 400 }}
                     src={item.backdrop_path!}
                     alt={item.title}
                 />
@@ -47,7 +48,7 @@ const Slider: FC = () => {
                     <h3>{item.title}</h3>
                     <p>{item.overview}</p>
                     <Link to={`/movie/?id=${item.id}`}>
-                        <Button href={`/movie/${item.id}`} style={{ fontSize: 20 }}>See more...</Button>
+                        <Button href={`/movie/${item.id}`} style={{ fontSize: 15 }}>See more...</Button>
                     </Link>
                 </Carousel.Caption>
 

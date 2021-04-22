@@ -1,46 +1,28 @@
  .cards-container {
-    /* margin: 0;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-right: 4%;
-    margin-left: 10%; */
    width: 100%;
-    /* position: relative;
-    height: auto;
-    margin-right: 0;
-    margin-left: 0;
-    zoom: 1;
-    display: block; */
+} 
 
-}   
 .cards {
-   /* width: 16.66666667;  */
     margin-top: 20px;
-     margin-bottom: 20px; 
-     font-size: 20px;
+    margin-bottom: 20px; 
+    font-size: 15px;
     text-align: center;
-        /* position: relative; */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        justify-content: center;
-        align-content: space-between;
-        /* white-space: nowrap; 
-        overflow: hidden;
-            text-overflow: ellipsis; */
-       
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
-        background-color: #fff;
-        background-clip: border-box;
-        /* border: 1px solid #eef2f7; */
-        border-radius: .25rem;
-        background: linear-gradient(-45deg);
-        overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+    background: linear-gradient(-45deg);
+    overflow: hidden;
     color: rgba(0, 0, 0, 0.85);
     font-weight: 500;
     font-size: 16px;
@@ -65,26 +47,34 @@ h2 {
     text-align: center;
 }
 
+.card-deck {
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
    /* Portrait cel */
    
-   @media (min-width: 320px) and (max-width: 480px) {
+    @media (min-width: 320px) and (max-width: 480px) {
   
     .cards-container {
-        margin: 10px 55px;
-    
+        margin: 10px; 
   }
-}
 
-/* Landscape cel */
-
-@media (min-width: 640px) and (max-width: 360px) {
-  
-    .cards-container {
-        margin: 0;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        margin-right: 4%;
-        margin-left: 13%;
-    
+  .card-deck {
+        margin-left: 20px;
   }
-}
+
+} 
