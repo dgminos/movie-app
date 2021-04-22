@@ -1,13 +1,21 @@
 .details-container {
-display: flex;
-justify-content: center;
-width: 100%;
- /* object-fit: cover;
- background-repeat: no-repeat;
-background-position: center;
-background-size: cover; */
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ); 
-  /* background-color: royalblue;    */
+    min-height: calc(100vh - 97px - 54px);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #3c3c3c;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    /* object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ); 
+    /* background-color: royalblue;    */
 }
 
 /* .row {
@@ -36,9 +44,9 @@ background-size: cover; */
      width: 100%; 
     object-fit: cover;
      background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
-height: 131%;
+    background-position: center;
+    background-size: cover;
+    height: 131%;
 }
 
 .movie-poster {
