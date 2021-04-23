@@ -5,6 +5,7 @@ import { useFetch } from '../../hooks/useFetch'
 import { ListProps, Movie } from '../../types'
 import './list.css'
 
+
 const List: FC<ListProps> = ({ endpoint, title }) => {
 
     const imageWidth = 92;

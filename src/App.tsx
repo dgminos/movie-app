@@ -8,17 +8,15 @@ const App: FC = () => {
 
   return (
 
-    <main>
-      <Router>
-        <Switch>
-          <Route path='/now_playing' component={NowPlaying} />
-          <Route path='/popular' component={Popular} />
-          <Route path='/search' component={Search} />
-          <Route path='/movie' component={Details} />
-          <Route exact path='/' component={Home} />
-        </Switch>
-      </Router>
-    </main>
+    <Router>
+      <Switch>
+        <Route path='/now_playing' component={NowPlaying} />
+        <Route path='/popular' component={Popular} />
+        <Route path='/search' component={Search} />
+        <Route path='/movie' component={Details} />
+        <Route exact path='/' component={Home} />
+      </Switch>
+    </Router>
 
   );
 }

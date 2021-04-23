@@ -8,7 +8,6 @@ import { Movie } from '../../types'
 import { CardsProps } from '../../types'
 import './cards.css'
 
-
 const Cards: FC<CardsProps> = ({ amount, results, title }) => {
 
   const cards = results.slice(0, amount).map((item: Movie) => {
