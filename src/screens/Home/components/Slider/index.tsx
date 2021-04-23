@@ -32,8 +32,8 @@ const Slider: FC = () => {
             </p>
             </Alert>
         )
-
     }
+
     const carouselItems = data.results.slice(0, 6).map((item: Movie) => {
         return (
             <Carousel.Item>

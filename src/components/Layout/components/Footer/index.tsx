@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { HeartFill } from "react-bootstrap-icons";
-
+import './footer.css'
 
 const Footer: FC = () => {
     let today = new Date();

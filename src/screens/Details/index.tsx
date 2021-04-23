@@ -13,13 +13,10 @@ const Details: FC = () => {
     const [movie, setMovie] = useState<Movie>({ id: 0, backdrop_path: '', popularity: 0, title: '', poster_path: '', overview: '', vote_average: 0, genres: [], release_date: '', video: false })
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id')
-    // const renderResults = (movie.id != 0)
     const posterAvailable = (movie.id !== 0 && movie.poster_path !== null)
     const backdropAvailable = (movie.id !== 0 && movie.backdrop_path !== null)
     const posterImg = <img className='movie-poster' alt='poster' src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}></img>
-    // const backdropImg = <div className='movie-background' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` }}></div>
     const posterImgPlaceholder = <img className='movie-poster' alt='poster' src={imagenotfound}></img>
-    // const backdropImgPlaceholder = <div className='movie-background' style={{ backgroundColor: `#3c3c3c` }}></div>
 
     useEffect(() => {
         console.log('id: ' + id)
@@ -30,27 +27,20 @@ const Details: FC = () => {
                 })
     }, [id])
     console.log(movie)
-    // mostrar placeholder si el movie.poster_path es nulo
-    // const resultsJsx = () => {
+
     return (
         <Layout>
-            <div className='details-container' style={{ backgroundImage: backdropAvailable ? `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : '', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
-                {/* <div className='movie-background' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` }}>
-                </div> */}
-                {/* {!backdropAvailable && backdropImgPlaceholder} */}
+            <div className='details-container' style={{ backgroundImage: backdropAvailable ? `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : '', backgroundSize: 'cover', backgroundPosition: 'center center', textShadow: '0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black' }}>
                 <div className="container">
                     <div className='row'>
-                        <div className='col-sm-6 movie-info-poster'>
-
-                            {/* <img className='movie-poster' src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
-                                alt='movie poster'>
-                            </img> */}
+                        <div className='col-lg-6 col-sm-12 movie-info-poster'>
                             {posterAvailable ? posterImg : posterImgPlaceholder}
                         </div>
-                        <div className='col-sm-6 movie-info-header'>
+                        <div className='col-lg-6 col-sm-12 movie-info-header'>
                             <div>
                                 <h3>{movie.title}</h3>
                                 <span style={{ fontSize: 20 }}>Release Date: {movie.release_date}</span>
+                                <br></br>
                                 <span style={{ fontSize: 20 }}>Rated: {movie.vote_average}</span>
                             </div>
                             <div>
@@ -87,14 +77,5 @@ const Details: FC = () => {
         </Layout>
     )
 }
-
-// return (
-
-//     <Layout>
-
-//         { renderResults ? resultsJsx : null}
-
-//     </Layout>
-// )
 
 export { Details }

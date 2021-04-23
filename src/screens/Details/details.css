@@ -10,32 +10,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: fixed;
-    /* object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
-        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ); 
-    /* background-color: royalblue;    */
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ); 
 }
 
-/* .row {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-} */
-
-
  .movie-info-header {
-    /* display: block; */
     color: white;
 }  
-
-/* .movie-info-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-   
-} */
 
 .movie-background {
     position: absolute;
@@ -47,16 +27,13 @@
     background-position: center;
     background-size: cover;
     height: 131%;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
 }
 
 .movie-poster {
-    margin: 60px 20px;
+     margin: 60px 0px; 
+    filter: brightness(100%);
 }
-
-/* .movie-trailer {
-    width: 50vw;
-    height: 30vh;
-} */
 
 .relase_date-rated-star {
     font-size: 50px;
@@ -72,73 +49,29 @@
 }
 
 .gerne-list {
-    font-size: 20px;
-}
-
-.movie-info-header h2 {
-    text-align: left;
-}
-
-.movie-info-poster {
-    padding-left: 150px;
+    font-size: 16px;
 }
 
  /* Portrait cel */
 
  @media (min-width: 320px) and (max-width: 576px) {
   
-    /* main {
-        width: 111%;
-    } */
-
-    .layout-header {
-        width: 374px;
-    }
-.movie-poster {
+  .movie-poster {
     width: 75%;
     margin: 50px 55px;
     padding: 0px;
-}
-    .movie-background {
-      display: none;
-  }
-
+}  
+ 
   .details-container {
       display: block;
       width: 100%;
       justify-content: center;
       align-items: center;
-     background-color: rgb(78, 78, 80); 
   }
 
-  .layout-header {
-    width: 100%;
-}
-
-.layout-main {
-    width: 100%;
-}
-
-  /* .movie-poster {
-      justify-content: center;
-       width: 90%;
-    margin: 5px 12px; 
-  } */
-
-  .movie-info-poster {
-    padding-left: 0px;
-}
-
-.movie-info-header {
-    margin-top: -25px;
-}
   .movie-info-header h2 {
     text-align: center;
 }
-
-/* h3 {
-    margin-left: 0px;
-} */
 
 .star {
     font-size: 20px;
@@ -158,53 +91,27 @@
     text-align: center;
 }
 
-/* .movie-trailer{  
-    padding-right: 11%;
-}  */
+.trailer {
+    padding-right: 20px;
+}
+
 }
 
 /* Landscape cel */
 
- @media (min-width: 576px)and (max-width: 1030px){
+  @media (min-width: 576px) and (max-width: 1050px){ 
 
-     main {
-        width: 100%;
-    } 
-      .movie-background {
-        display: none;
-    }  
-
-    .details-container {
-        width: 100%;
+     .movie-info-poster {
+        display: flex;
         justify-content: center;
-        align-items: center;
-        background-color: rgb(78, 78, 80); 
+    } 
+
+    .trailer {
+        width: 450px;
+        height: 230px;
     }
+ }  
 
-    .movie-info-poster {
-        padding-left: 10px;
-        max-height: 650px;
-    }
 
-     .movie-info-header {
-        width: 330px;
-    }
-    
-    .movie-info-content {
-        margin-left: -22px;
-    }
 
-     .movie-poster {
-         width: 300px;
-         height: 75%; 
-         padding: 25px; 
-        object-fit: cover;
-} 
-
-     .movie-trailer {
-         margin-left: -311px;
-         margin-top: 55px;
-}
-
-} 
 

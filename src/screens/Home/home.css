@@ -28,33 +28,32 @@ border: 1px solid #161515;
    border: 1px solid #161515;
  }
 
- @media (max-width: 812px) {
+  @media (max-width: 812px) {
   
    .list-group {
      display: block
    }
      
    .top-rated-list {
-     margin-top: 35px;
+     margin-top: 40px;
    } 
-
-   .popular-list, .top-rated-list{
-    height: 86vh;
-   }
-   }
-
-   /* Portrait cel */
-
-   @media (min-width: 320px) and (max-width: 480px) {
+  }
   
-    .popular-list, .top-rated-list {
-      height: 77vh;
-  }
+ /* Portrait cel */
 
-    .wraper {
-      margin: 43px auto;
-  }
-   }
+ @media (min-width: 320px) and (max-width: 480px) {
+
+  .popular-list, .top-rated-list {
+    height: 78vh;
+}
+
+  .wraper {
+    margin: 43px auto;
+}
+ }
+
+
+
 
 
 
