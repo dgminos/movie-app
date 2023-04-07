@@ -16,10 +16,7 @@ const Details: FC = () => {
     const posterAvailable = (movie.id !== 0 && movie.poster_path !== null)
     const backdropAvailable = (movie.id !== 0 && movie.backdrop_path !== null)
     const posterImg = <img className='movie-poster' alt='poster' src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}></img>
-<<<<<<< HEAD
     const backdropImg = <div className='movie-background' style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` }}></div>
-=======
->>>>>>> 3c114d2928b114232b8c045e2fa802e97707879e
     const posterImgPlaceholder = <img className='movie-poster' alt='poster' src={imagenotfound}></img>
 
     useEffect(() => {
