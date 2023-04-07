@@ -32,13 +32,13 @@
 
   .list {
     display: block;
-    height: 76vh;
+    height: 78vh;
     width: 100%;
   }
 
    .list-img {
     max-height: 10vh;
-    border-radius: 50%; 
+     border-radius: 50%; 
     height: 60px;
     width: 60px;
     position: center;

@@ -12,7 +12,7 @@ const Layout: FC<Props> = ({ children, hideHeader, hideFooter = false }) => {
         <>
             {!hideHeader && <Header />}
             <main className='layout-main'>
-                <div className="layout-main-container">{children}</div>
+                {children}
             </main>
             {!hideFooter && <Footer />}
         </>
