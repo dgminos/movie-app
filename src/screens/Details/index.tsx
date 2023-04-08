@@ -19,18 +19,17 @@ const Details: FC = () => {
     const posterImgPlaceholder = <img className='movie-poster' alt='poster' src={imagenotfound}></img>
 
     useEffect(() => {
-        console.log('id: ' + id)
+        
         if (id)
             fetchData(id)
                 .then((response) => {
                     setMovie(response.result)
                 })
     }, [id])
-    console.log(movie)
 
     return (
         <Layout>
-            <div className='details-container' style={{ backgroundImage: backdropAvailable ? `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : '', backgroundSize: 'cover', backgroundPosition: 'center center', textShadow: '0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black' }}>
+            <div className='details-container' style={{ backgroundImage: backdropAvailable ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : '', backgroundSize: 'cover', backgroundPosition: 'center center' }}>
                 <div className="container">
                     <div className='row'>
                         <div className='col-lg-6 col-sm-12 movie-info-poster'>
@@ -70,7 +69,6 @@ const Details: FC = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
